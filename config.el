@@ -33,6 +33,7 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
 
+(setq projectile-project-search-path '("~/Projects/" "~/.config/"))
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
@@ -50,3 +51,16 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t)
+)
+
+(setq-default tab-width 4)
+
+(setq highlight-indent-guides-method 'fill)
+(setq highlight-indent-guides-responsive 'stack)
+(setq highlight-indent-guides-delay 0)

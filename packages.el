@@ -48,3 +48,10 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
+
+(package! org-auto-tangle)
+(package! fish-mode)
+(package! gitattributes-mode)
+(package! gitconfig-mode)
+(package! gitignore-mode)
+(package! vimrc-mode)
