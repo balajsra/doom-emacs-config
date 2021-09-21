@@ -113,7 +113,7 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
        ;;parinfer          ; turn lisp into python, sort of
        ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
-       ;;word-wrap         ; soft wrapping with language-aware indent
+       word-wrap         ; soft wrapping with language-aware indent
 #+END_SRC
 
 *** Emacs
@@ -301,8 +301,7 @@ You can also try =gd= (or =C-c c d=) to jump to their definition and see how the
 Some functionality uses this to identify you, e.g. GPG configuration, email clients, file templates and snippets.
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
-(setq user-full-name "Sravan Balaji"
-      user-mail-address "sr98vn@gmail.com")
+(setq user-full-name "Sravan Balaji")
 #+END_SRC
 
 *** User Interface
@@ -322,9 +321,28 @@ They all accept either a font-spec, font string ("Input Mono-12"), or xlfd font 
       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 #+END_EXAMPLE
 
+Set regular, variable pitch, and big fonts.
+
 #+BEGIN_SRC emacs-lisp :tangle config.el
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
-      doom-variable-pitch-font (font-spec :family "Cantarell" :size 13))
+(setq doom-font (font-spec :family "VictorMono Nerd Font Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "Cantarell" :size 14)
+      doom-big-font (font-spec :family "sb/source-code-font" :size 24))
+#+END_SRC
+
+Enable *bold* and /italic/ text.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+#+END_SRC
+
+Make comments and keywords /italicized/.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 #+END_SRC
 
 **** Theme
@@ -361,13 +379,13 @@ This determines the style of line numbers in effect. If set to =nil=, line numbe
 
 If you use =org= and don't want your org files in the default location below, change =org-directory=. It must be set before org loads!
 
-**** Org Directory
+**** Directory
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
 (setq org-directory "~/org/")
 #+END_SRC
 
-**** Org Auto Tangle
+**** Auto Tangle
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
 (use-package! org-auto-tangle
@@ -378,11 +396,17 @@ If you use =org= and don't want your org files in the default location below, ch
 )
 #+END_SRC
 
-**** Org Source Code Indentation
+**** Source Code Indentation
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
 (setq org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)
+#+END_SRC
+
+**** Hide Emphasis Markers
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq org-hide-emphasis-markers t)
 #+END_SRC
 
 *** Projectile

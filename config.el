@@ -1,10 +1,18 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-(setq user-full-name "Sravan Balaji"
-      user-mail-address "sr98vn@gmail.com")
+(setq user-full-name "Sravan Balaji")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 13)
-      doom-variable-pitch-font (font-spec :family "Cantarell" :size 13))
+(setq doom-font (font-spec :family "VictorMono Nerd Font Mono" :size 14)
+      doom-variable-pitch-font (font-spec :family "Cantarell" :size 14)
+      doom-big-font (font-spec :family "sb/source-code-font" :size 24))
+
+(after! doom-themes
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+
+(custom-set-faces!
+  '(font-lock-comment-face :slant italic)
+  '(font-lock-keyword-face :slant italic))
 
 (setq doom-theme 'doom-dracula)
 
@@ -27,6 +35,8 @@
 
 (setq org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)
+
+(setq org-hide-emphasis-markers t)
 
 (setq projectile-project-search-path '("~/Projects/" "~/.config/"))
 
