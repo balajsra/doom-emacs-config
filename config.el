@@ -16,6 +16,8 @@
 
 (setq doom-theme 'doom-dracula)
 
+(doom/set-frame-opacity 95)
+
 (setq display-line-numbers-type t)
 
 (setq-default tab-width 4)
