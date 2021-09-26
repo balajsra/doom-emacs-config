@@ -26,6 +26,7 @@
     - [[#org-mode][Org Mode]]
     - [[#projectile][Projectile]]
     - [[#prettier-formatter][Prettier Formatter]]
+    - [[#file-extension-mode-association][File Extension Mode Association]]
   - [[#packagesel][packages.el]]
     - [[#packages][Packages]]
 
@@ -425,6 +426,12 @@ If you use =org= and don't want your org files in the default location below, ch
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
 (add-hook! 'web-mode-hook 'prettier-js-mode)
+#+END_SRC
+
+*** File Extension Mode Association
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 #+END_SRC
 
 ** packages.el

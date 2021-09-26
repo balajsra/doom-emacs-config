@@ -43,3 +43,5 @@
 (setq projectile-project-search-path '("~/Projects/" "~/.config/"))
 
 (add-hook! 'web-mode-hook 'prettier-js-mode)
+
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
