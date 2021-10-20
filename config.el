@@ -44,4 +44,7 @@
 
 (add-hook! 'web-mode-hook 'prettier-js-mode)
 
+(map! :map cdlatex-mode-map
+    :i "TAB" #'cdlatex-tab)
+
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
