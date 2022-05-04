@@ -522,9 +522,7 @@ Doom's packages are pinned to a specific commit and updated from release to rele
 #+BEGIN_SRC emacs-lisp :tangle packages.el
 (package! org-auto-tangle)
 (package! fish-mode)
-(package! gitattributes-mode)
-(package! gitconfig-mode)
-(package! gitignore-mode)
+(package! git-modes)
 (package! vimrc-mode)
 (package! prettier-js)
 #+END_SRC

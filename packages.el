@@ -3,8 +3,6 @@
 
 (package! org-auto-tangle)
 (package! fish-mode)
-(package! gitattributes-mode)
-(package! gitconfig-mode)
-(package! gitignore-mode)
+(package! git-modes)
 (package! vimrc-mode)
 (package! prettier-js)
