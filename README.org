@@ -28,6 +28,7 @@
     - [[#prettier-formatter][Prettier Formatter]]
     - [[#cdlatex][CDLaTeX]]
     - [[#file-extension-mode-association][File Extension Mode Association]]
+    - [[#automatically-revert-buffers-for-changed-files][Automatically revert buffers for changed files]]
   - [[#packagesel][packages.el]]
     - [[#packages][Packages]]
 
@@ -442,6 +443,14 @@ If you use =org= and don't want your org files in the default location below, ch
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+#+END_SRC
+
+*** Automatically revert buffers for changed files
+
+Revert buffers when the underlying file has changed
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(global-auto-revert-mode 1)
 #+END_SRC
 
 ** packages.el

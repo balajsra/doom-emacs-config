@@ -48,3 +48,5 @@
     :i "TAB" #'cdlatex-tab)
 
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
+(global-auto-revert-mode 1)
