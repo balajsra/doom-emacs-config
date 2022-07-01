@@ -2,9 +2,9 @@
 
 (setq user-full-name "Sravan Balaji")
 
-(setq doom-font (font-spec :family "VictorMono Nerd Font Mono" :size 14)
-      doom-variable-pitch-font (font-spec :family "Cantarell" :size 14)
-      doom-big-font (font-spec :family "sb/source-code-font" :size 24))
+(setq doom-font (font-spec :family "VictorMono Nerd Font" :size 14)
+      doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 14)
+      doom-big-font (font-spec :family "VictorMono Nerd Font" :size 24))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
@@ -40,6 +40,25 @@
 
 (setq org-hide-emphasis-markers t)
 
+(after! org-faces
+  (defun org-colors-dracula ()
+    "Enable Dracula colors for Org headers."
+    (interactive)
+    (dolist
+        (face
+         '((org-level-1 1.7 "#8be9fd" ultra-bold)
+           (org-level-2 1.6 "#bd93f9" extra-bold)
+           (org-level-3 1.5 "#50fa7b" bold)
+           (org-level-4 1.4 "#ff79c6" semi-bold)
+           (org-level-5 1.3 "#9aedfe" normal)
+           (org-level-6 1.2 "#caa9fa" normal)
+           (org-level-7 1.1 "#5af78e" normal)
+           (org-level-8 1.0 "#ff92d0" normal)))
+      (set-face-attribute (nth 0 face) nil :font doom-variable-pitch-font :weight (nth 3 face) :height (nth 1 face) :foreground (nth 2 face)))
+    (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
+  ;; Load our desired org-colors-* theme on startup
+  (org-colors-dracula))
+
 (setq projectile-project-search-path '("~/Projects/" "~/.config/"))
 
 (add-hook! 'web-mode-hook 'prettier-js-mode)
@@ -50,3 +69,4 @@
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 (global-auto-revert-mode 1)
+(setq global-auto-revert-non-file-buffers t)
