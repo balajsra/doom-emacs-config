@@ -225,11 +225,11 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       org                 ; organize your plain life in plain text
+       (org +pretty)       ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       (python +lsp)            ; beautiful is better than ugly
+       (python +lsp)       ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
@@ -394,6 +394,13 @@ If you use =org= and don't want your org files in the default location below, ch
 (setq org-directory "~/org/")
 #+END_SRC
 
+**** Babel Tangle Keybinding
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(map! :leader
+      :desc "Org babel tangle" "m B" #'org-babel-tangle)
+#+END_SRC
+
 **** Auto Tangle
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
@@ -418,6 +425,12 @@ If you use =org= and don't want your org files in the default location below, ch
 (setq org-hide-emphasis-markers t)
 #+END_SRC
 
+**** Ellipsis
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq org-ellipsis " ▼ ")
+#+END_SRC
+
 **** Fonts
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
@@ -439,6 +452,15 @@ If you use =org= and don't want your org files in the default location below, ch
     (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
   ;; Load our desired org-colors-* theme on startup
   (org-colors-dracula))
+#+END_SRC
+
+**** Superstar
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆"))
+(setq org-superstar-item-bullet-alist '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
+
+(add-hook! org-mode (org-superstar-mode))
 #+END_SRC
 
 *** Projectile

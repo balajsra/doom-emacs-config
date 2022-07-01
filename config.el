@@ -28,6 +28,9 @@
 
 (setq org-directory "~/org/")
 
+(map! :leader
+      :desc "Org babel tangle" "m B" #'org-babel-tangle)
+
 (use-package! org-auto-tangle
   :defer t
   :hook (org-mode . org-auto-tangle-mode)
@@ -39,6 +42,8 @@
       org-edit-src-content-indentation 0)
 
 (setq org-hide-emphasis-markers t)
+
+(setq org-ellipsis " ▼ ")
 
 (after! org-faces
   (defun org-colors-dracula ()
@@ -58,6 +63,11 @@
     (set-face-attribute 'org-table nil :font doom-font :weight 'normal :height 1.0 :foreground "#bfafdf"))
   ;; Load our desired org-colors-* theme on startup
   (org-colors-dracula))
+
+(setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆"))
+(setq org-superstar-item-bullet-alist '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
+
+(add-hook! org-mode (org-superstar-mode))
 
 (setq projectile-project-search-path '("~/Projects/" "~/.config/"))
 
