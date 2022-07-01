@@ -329,7 +329,8 @@ Set regular, variable pitch, and big fonts.
 #+BEGIN_SRC emacs-lisp :tangle config.el
 (setq doom-font (font-spec :family "VictorMono Nerd Font" :size 14)
       doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 14)
-      doom-big-font (font-spec :family "VictorMono Nerd Font" :size 24))
+      doom-big-font (font-spec :family "VictorMono Nerd Font" :size 24)
+      doom-unicode-font (font-spec :family "FiraCode Nerd Font" :size 14))
 #+END_SRC
 
 Enable *bold* and /italic/ text.
