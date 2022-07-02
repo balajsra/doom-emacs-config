@@ -67,10 +67,9 @@
 
 (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆"))
 (setq org-superstar-item-bullet-alist '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
-
 (add-hook! org-mode (org-superstar-mode))
 
-(setq projectile-project-search-path '("~/Projects/" "~/.config/"))
+(setq projectile-project-search-path '("~/Projects/Personal/" "~/Projects/System/" "~/.config/"))
 
 (add-hook! 'web-mode-hook 'prettier-js-mode)
 
@@ -81,3 +80,7 @@
 
 (global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
+
+(define-globalized-minor-mode global-rainbow-mode rainbow-mode
+  (lambda () (rainbow-mode 1)))
+(global-rainbow-mode 1)
