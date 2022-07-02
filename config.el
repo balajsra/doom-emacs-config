@@ -27,6 +27,99 @@
 (setq highlight-indent-guides-responsive 'stack)
 (setq highlight-indent-guides-delay 0)
 
+;; (setq doom-modeline-support-imenu t)
+
+(setq doom-modeline-height 30)
+
+(setq doom-modeline-bar-width 4)
+
+(setq doom-modeline-hud nil)
+
+(setq doom-modeline-window-width-limit 85)
+
+(setq doom-modeline-project-detection 'auto)
+
+(setq doom-modeline-buffer-file-name-style 'auto)
+
+(setq doom-modeline-icon t)
+
+(setq doom-modeline-major-mode-icon t)
+
+(setq doom-modeline-major-mode-color-icon t)
+
+(setq doom-modeline-buffer-state-icon t)
+
+(setq doom-modeline-buffer-modification-icon t)
+
+(setq doom-modeline-unicode-fallback nil)
+
+(setq doom-modeline-buffer-name t)
+
+(setq doom-modeline-minor-modes nil)
+
+(setq doom-modeline-enable-word-count t)
+
+(setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
+
+(setq doom-modeline-buffer-encoding t)
+
+(setq doom-modeline-indent-info t)
+
+(setq doom-modeline-checker-simple-format t)
+
+(setq doom-modeline-number-limit 99)
+
+(setq doom-modeline-vcs-max-length 12)
+
+(setq doom-modeline-workspace-name t)
+
+(setq doom-modeline-persp-name t)
+
+(setq doom-modeline-display-default-persp-name nil)
+
+(setq doom-modeline-persp-icon t)
+
+(setq doom-modeline-lsp t)
+
+(setq doom-modeline-github nil)
+
+(setq doom-modeline-github-interval (* 30 60))
+
+(setq doom-modeline-modal-icon t)
+
+(setq doom-modeline-mu4e nil)
+;; (mu4e-alert-enable-mode-line-display)
+
+(setq doom-modeline-gnus t)
+
+(setq doom-modeline-gnus-timer 2)
+
+(setq doom-modeline-gnus-excluded-groups '("dummy.group"))
+
+(setq doom-modeline-irc nil)
+
+(setq doom-modeline-irc-stylize 'identity)
+
+(setq doom-modeline-env-version t)
+(setq doom-modeline-env-enable-python t)
+(setq doom-modeline-env-enable-ruby t)
+(setq doom-modeline-env-enable-perl t)
+(setq doom-modeline-env-enable-go t)
+(setq doom-modeline-env-enable-elixir t)
+(setq doom-modeline-env-enable-rust t)
+
+(setq doom-modeline-env-python-executable "python") ; or `python-shell-interpreter'
+(setq doom-modeline-env-ruby-executable "ruby")
+(setq doom-modeline-env-perl-executable "perl")
+(setq doom-modeline-env-go-executable "go")
+(setq doom-modeline-env-elixir-executable "iex")
+(setq doom-modeline-env-rust-executable "rustc")
+
+(setq doom-modeline-env-load-string "...")
+
+(setq doom-modeline-before-update-env-hook nil)
+(setq doom-modeline-after-update-env-hook nil)
+
 (setq org-directory "~/org/")
 
 (map! :leader
@@ -68,6 +161,12 @@
 (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆"))
 (setq org-superstar-item-bullet-alist '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
 (add-hook! org-mode (org-superstar-mode))
+
+(custom-set-faces
+ '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))
+ '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
+ '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2)))))
 
 (setq projectile-project-search-path '("~/Projects/Personal/" "~/Projects/System/" "~/.config/"))
 

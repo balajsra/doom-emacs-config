@@ -24,6 +24,7 @@
     - [[#user-configuration][User Configuration]]
     - [[#user-interface-1][User Interface]]
     - [[#org-mode][Org Mode]]
+    - [[#markdown][Markdown]]
     - [[#projectile][Projectile]]
     - [[#prettier-formatter][Prettier Formatter]]
     - [[#cdlatex][CDLaTeX]]
@@ -392,6 +393,278 @@ This determines the style of line numbers in effect. If set to =nil=, line numbe
 (setq highlight-indent-guides-delay 0)
 #+END_SRC
 
+**** Modeline
+
+If non-nil, cause imenu to see ~doom-modeline~ declarations. This is done by adjusting ~lisp-imenu-generic-expression~ to include support for finding ~doom-modeline-def-*~ forms. Must be set before loading doom-modeline.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+;; (setq doom-modeline-support-imenu t)
+#+END_SRC
+
+How tall the mode-line should be. It's only respected in GUI. If the actual char height is larger, it respects the actual height.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-height 30)
+#+END_SRC
+
+How wide the mode-line bar should be. It's only respected in GUI.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-bar-width 4)
+#+END_SRC
+
+Whether to use hud instead of default bar. It's only respected in GUI.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-hud nil)
+#+END_SRC
+
+The limit of the window width. If ~window-width~ is smaller than the limit, some information won't be displayed. It can be an integer or a float number. `nil' means no limit."
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-window-width-limit 85)
+#+END_SRC
+
+How to detect the project root. nil means to use ~default-directory~. The project management packages have some issues on detecting project root. e.g. ~projectile~ doesn't handle symlink folders well, while ~project~ is unable to handle sub-projects. You can specify one if you encounter the issue.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-project-detection 'auto)
+#+END_SRC
+
+Determines the style used by ~doom-modeline-buffer-file-name~.
+
+Given ~/Projects/FOSS/emacs/lisp/comint.el
+  auto => emacs/lisp/comint.el (in a project) or comint.el
+  truncate-upto-project => ~/P/F/emacs/lisp/comint.el
+  truncate-from-project => ~/Projects/FOSS/emacs/l/comint.el
+  truncate-with-project => emacs/l/comint.el
+  truncate-except-project => ~/P/F/emacs/l/comint.el
+  truncate-upto-root => ~/P/F/e/lisp/comint.el
+  truncate-all => ~/P/F/e/l/comint.el
+  truncate-nil => ~/Projects/FOSS/emacs/lisp/comint.el
+  relative-from-project => emacs/lisp/comint.el
+  relative-to-project => lisp/comint.el
+  file-name => comint.el
+  buffer-name => comint.el<2> (uniquify buffer name)
+
+If you are experiencing the laggy issue, especially while editing remote files with tramp, please try ~file-name~ style. Please refer to https://github.com/bbatsov/projectile/issues/657.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-buffer-file-name-style 'auto)
+#+END_SRC
+
+Whether display icons in the mode-line. While using the server mode in GUI, should set the value explicitly.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-icon t)
+#+END_SRC
+
+Whether display the icon for ~major-mode~. It respects ~doom-modeline-icon~.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-major-mode-icon t)
+#+END_SRC
+
+Whether display the colorful icon for ~major-mode~. It respects ~all-the-icons-color-icons~.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-major-mode-color-icon t)
+#+END_SRC
+
+Whether display the icon for the buffer state. It respects ~doom-modeline-icon~.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-buffer-state-icon t)
+#+END_SRC
+
+Whether display the modification icon for the buffer. It respects ~doom-modeline-icon~ and ~doom-modeline-buffer-state-icon~.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-buffer-modification-icon t)
+#+END_SRC
+
+Whether to use unicode as a fallback (instead of ASCII) when not using icons.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-unicode-fallback nil)
+#+END_SRC
+
+Whether display the buffer name.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-buffer-name t)
+#+END_SRC
+
+Whether display the minor modes in the mode-line.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-minor-modes nil)
+#+END_SRC
+
+If non-nil, a word count will be added to the selection-info modeline segment.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-enable-word-count t)
+#+END_SRC
+
+Major modes in which to display word count continuously. Also applies to any derived modes. Respects ~doom-modeline-enable-word-count~. If it brings the sluggish issue, disable ~doom-modeline-enable-word-count~ or remove the modes from ~doom-modeline-continuous-word-count-modes~.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode))
+#+END_SRC
+
+Whether display the buffer encoding.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-buffer-encoding t)
+#+END_SRC
+
+Whether display the indentation information.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-indent-info t)
+#+END_SRC
+
+If non-nil, only display one number for checker information if applicable.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-checker-simple-format t)
+#+END_SRC
+
+The maximum number displayed for notifications.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-number-limit 99)
+#+END_SRC
+
+The maximum displayed length of the branch name of version control.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-vcs-max-length 12)
+#+END_SRC
+
+Whether display the workspace name. Non-nil to display in the mode-line.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-workspace-name t)
+#+END_SRC
+
+Whether display the perspective name. Non-nil to display in the mode-line.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-persp-name t)
+#+END_SRC
+
+If non nil the default perspective name is displayed in the mode-line.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-display-default-persp-name nil)
+#+END_SRC
+
+If non nil the perspective name is displayed alongside a folder icon.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-persp-icon t)
+#+END_SRC
+
+Whether display the `lsp' state. Non-nil to display in the mode-line.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-lsp t)
+#+END_SRC
+
+Whether display the GitHub notifications. It requires ~ghub~ package.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-github nil)
+#+END_SRC
+
+The interval of checking GitHub.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-github-interval (* 30 60))
+#+END_SRC
+
+Whether display the modal state icon. Including ~evil~, ~overwrite~, ~god~, ~ryo~ and ~xah-fly-keys~, etc.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-modal-icon t)
+#+END_SRC
+
+Whether display the mu4e notifications. It requires ~mu4e-alert~ package.
+Also enable the start of mu4e-alert.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-mu4e nil)
+;; (mu4e-alert-enable-mode-line-display)
+#+END_SRC
+
+Whether display the gnus notifications.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-gnus t)
+#+END_SRC
+
+Whether gnus should automatically be updated and how often (set to 0 or smaller than 0 to disable)
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-gnus-timer 2)
+#+END_SRC
+
+Whether groups should be excluded when gnus automatically being updated.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-gnus-excluded-groups '("dummy.group"))
+#+END_SRC
+
+Whether display the IRC notifications. It requires ~circe~ or ~erc~ package.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-irc nil)
+#+END_SRC
+
+Function to stylize the irc buffer names.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-irc-stylize 'identity)
+#+END_SRC
+
+Whether display the environment version. Or for individual languages.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-env-version t)
+(setq doom-modeline-env-enable-python t)
+(setq doom-modeline-env-enable-ruby t)
+(setq doom-modeline-env-enable-perl t)
+(setq doom-modeline-env-enable-go t)
+(setq doom-modeline-env-enable-elixir t)
+(setq doom-modeline-env-enable-rust t)
+#+END_SRC
+
+Change the executables to use for the language version string.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-env-python-executable "python") ; or `python-shell-interpreter'
+(setq doom-modeline-env-ruby-executable "ruby")
+(setq doom-modeline-env-perl-executable "perl")
+(setq doom-modeline-env-go-executable "go")
+(setq doom-modeline-env-elixir-executable "iex")
+(setq doom-modeline-env-rust-executable "rustc")
+#+END_SRC
+
+What to display as the version while a new one is being loaded.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-env-load-string "...")
+#+END_SRC
+
+Hooks that run before/after the modeline version string is updated.
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(setq doom-modeline-before-update-env-hook nil)
+(setq doom-modeline-after-update-env-hook nil)
+#+END_SRC
+
 *** Org Mode
 
 If you use =org= and don't want your org files in the default location below, change =org-directory=. It must be set before org loads!
@@ -468,6 +741,16 @@ If you use =org= and don't want your org files in the default location below, ch
 (setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆"))
 (setq org-superstar-item-bullet-alist '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
 (add-hook! org-mode (org-superstar-mode))
+#+END_SRC
+
+*** Markdown
+
+#+BEGIN_SRC emacs-lisp :tangle config.el
+(custom-set-faces
+ '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
+ '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))
+ '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
+ '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2)))))
 #+END_SRC
 
 *** Projectile
