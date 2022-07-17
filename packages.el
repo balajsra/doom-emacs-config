@@ -6,3 +6,4 @@
 (package! vimrc-mode)
 (package! prettier-js)
 (package! rainbow-mode)
+(package! systemd)

@@ -922,4 +922,5 @@ Doom's packages are pinned to a specific commit and updated from release to rele
 (package! vimrc-mode)
 (package! prettier-js)
 (package! rainbow-mode)
+(package! systemd)
 #+END_SRC
