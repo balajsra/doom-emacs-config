@@ -7,3 +7,4 @@
 (package! prettier-js)
 (package! rainbow-mode)
 (package! systemd)
+(package! pkgbuild-mode)

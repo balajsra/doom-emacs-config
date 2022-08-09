@@ -772,8 +772,6 @@ If you use =org= and don't want your org files in the default location below, ch
     :i "TAB" #'cdlatex-tab)
 #+END_SRC
 
-#+RESULTS:
-
 *** File Extension Mode Association
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
@@ -923,4 +921,5 @@ Doom's packages are pinned to a specific commit and updated from release to rele
 (package! prettier-js)
 (package! rainbow-mode)
 (package! systemd)
+(package! pkgbuild-mode)
 #+END_SRC
