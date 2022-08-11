@@ -922,4 +922,5 @@ Doom's packages are pinned to a specific commit and updated from release to rele
 (package! rainbow-mode)
 (package! systemd)
 (package! pkgbuild-mode)
+(package! lua-mode)
 #+END_SRC

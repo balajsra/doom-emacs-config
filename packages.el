@@ -8,3 +8,4 @@
 (package! rainbow-mode)
 (package! systemd)
 (package! pkgbuild-mode)
+(package! lua-mode)
