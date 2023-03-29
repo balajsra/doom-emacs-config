@@ -15,7 +15,7 @@
   '(font-lock-comment-face :slant italic)
   '(font-lock-keyword-face :slant italic))
 
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'dracula-pro-pro)
 
 (doom/set-frame-opacity 95)
 

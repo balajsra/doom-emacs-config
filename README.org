@@ -362,7 +362,7 @@ Make comments and keywords /italicized/.
 There are two ways to load a theme. Both assume the theme is installed and available. You can either set =doom-theme= or manually load a theme with the =load-theme= function.
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'dracula-pro-pro)
 #+END_SRC
 
 **** Opacity
