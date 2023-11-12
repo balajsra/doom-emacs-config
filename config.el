@@ -168,7 +168,7 @@
  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
  '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2)))))
 
-(setq projectile-project-search-path '("~/Projects/Personal/" "~/Projects/System/" "~/.config/"))
+(setq projectile-project-search-path '("~/Git/" "~/.config/"))
 
 (add-hook! 'web-mode-hook 'prettier-js-mode)
 

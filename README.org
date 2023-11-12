@@ -756,7 +756,7 @@ If you use =org= and don't want your org files in the default location below, ch
 *** Projectile
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
-(setq projectile-project-search-path '("~/Projects/Personal/" "~/Projects/System/" "~/.config/"))
+(setq projectile-project-search-path '("~/Git/" "~/.config/"))
 #+END_SRC
 
 *** Prettier Formatter
