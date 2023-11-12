@@ -168,7 +168,7 @@
  '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
  '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2)))))
 
-(setq projectile-project-search-path '("~/Git/" "~/.config/"))
+(setq projectile-project-search-path '("~/Git/" "~/.config/" "~/.dotfiles/"))
 
 (add-hook! 'web-mode-hook 'prettier-js-mode)
 
@@ -217,3 +217,8 @@
 
 (after! dap-mode
   (setq dap-python-debugger 'debugpy))
+
+(setq shell-file-name (executable-find "bash"))
+
+(setq-default vterm-shell (executable-find "fish"))
+(setq-default explicit-shell-file-name (executable-find "fish"))
