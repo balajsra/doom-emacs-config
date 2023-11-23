@@ -2,10 +2,10 @@
 
 (setq user-full-name "Sravan Balaji")
 
-(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14)
-      doom-variable-pitch-font (font-spec :family "Ubuntu Nerd Font" :size 14)
-      doom-big-font (font-spec :family "FiraCode Nerd Font" :size 24)
-      doom-unicode-font (font-spec :family "FiraCode Nerd Font" :size 14))
+(setq doom-font (font-spec :family "MonaspiceNe NF" :size 14)
+      doom-variable-pitch-font (font-spec :family "MonaspiceNe NF" :size 14)
+      doom-big-font (font-spec :family "MonaspiceNe NF" :size 24)
+      doom-unicode-font (font-spec :family "MonaspiceNe NF" :size 14))
 
 (after! doom-themes
   (setq doom-themes-enable-bold t
