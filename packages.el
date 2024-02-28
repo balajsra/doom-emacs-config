@@ -9,3 +9,4 @@
 (package! systemd)
 (package! pkgbuild-mode)
 (package! lua-mode)
+(package! just-mode)
