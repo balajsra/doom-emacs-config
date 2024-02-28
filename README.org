@@ -5,6 +5,7 @@
 
 * Table of Contents :TOC_3:noexport:
 - [[#welcome][Welcome]]
+- [[#git-ignore][Git Ignore]]
 - [[#configuration-files][Configuration Files]]
   - [[#initel][init.el]]
     - [[#input][Input]]
@@ -39,6 +40,14 @@
 * Welcome
 
 My personal configuration of [[https://github.com/hlissner/doom-emacs][DOOM Emacs]], written as an [[https://orgmode.org][Org Mode]] document.
+
+* Git Ignore
+
+Things to ignore in git repo.
+
+#+BEGIN_SRC gitignore :tangle .gitignore
+custom.el
+#+END_SRC
 
 * Configuration Files
 
