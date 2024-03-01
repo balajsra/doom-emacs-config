@@ -79,7 +79,7 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
 
 #+BEGIN_SRC emacs-lisp :tangle init.el
        :completion
-       company             ; the ultimate code completion backend
+       (company +tng)      ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -93,8 +93,8 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
        ;;deft                                  ; notational velocity for Emacs
        doom                                    ; what makes DOOM look the way it does
        doom-dashboard                          ; a nifty splash screen for Emacs
-       ;;doom-quit                             ; DOOM quit-message prompts when you quit Emacs
-       ;;(emoji +unicode)                      ; 🙂
+       doom-quit                               ; DOOM quit-message prompts when you quit Emacs
+       ;;emoji                                 ; 🙂
        hl-todo                                 ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        ;;hydra
        indent-guides                           ; highlighted indent columns
@@ -137,10 +137,10 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
 
 #+BEGIN_SRC emacs-lisp :tangle init.el
        :emacs
-       dired                                   ; making dired pretty [functional]
+       (dired +ranger +icons)                  ; making dired pretty [functional]
        electric                                ; smarter, keyword-based electric-indent
-       ibuffer                                 ; interactive buffer management
-       undo                                    ; persistent, smarter undo for your inevitable mistakes
+       (ibuffer +icons)                        ; interactive buffer management
+       (undo +tree)                            ; persistent, smarter undo for your inevitable mistakes
        vc                                      ; version-control and Emacs, sitting in a tree
 #+END_SRC
 
@@ -183,12 +183,12 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
        ;;pass                                  ; password manager for nerds
        pdf                                     ; pdf enhancements
        ;;prodigy                               ; FIXME managing external services & code builders
-       ;;rgb                                   ; creating color strings
+       rgb                                     ; creating color strings
        ;;taskrunner                            ; taskrunner for all your projects
        ;;terraform                             ; infrastructure as code
        ;;tmux                                  ; an API for interacting with tmux
        ;;tree-sitter                           ; syntax and parsing, sitting in a tree...
-       ;;upload                                ; map local to remote projects via ssh/ftp
+       upload                                  ; map local to remote projects via ssh/ftp
 #+END_SRC
 
 *** OS
@@ -262,7 +262,7 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
        ;;solidity                              ; do you need a blockchain? No.
        ;;swift                                 ; who asked for emoji variables?
        ;;terra                                 ; Earth and Moon in alignment for performance.
-       web                                     ; the tubes
+       (web +lsp)                              ; the tubes
        (yaml +lsp)                             ; JSON, but readable
        ;;zig                                   ; C, but simpler
 #+END_SRC
