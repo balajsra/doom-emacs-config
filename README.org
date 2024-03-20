@@ -945,4 +945,5 @@ Doom's packages are pinned to a specific commit and updated from release to rele
 (package! pkgbuild-mode)
 (package! lua-mode)
 (package! just-mode)
+(package! nix-mode)
 #+END_SRC
