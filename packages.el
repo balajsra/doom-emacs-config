@@ -11,3 +11,4 @@
 (package! lua-mode)
 (package! just-mode)
 (package! nix-mode)
+(package! yuck-mode)
