@@ -12,3 +12,4 @@
 (package! just-mode)
 (package! nix-mode)
 (package! yuck-mode)
+(package! ebuild-mode)
