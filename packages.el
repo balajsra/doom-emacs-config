@@ -13,3 +13,5 @@
 (package! nix-mode)
 (package! yuck-mode)
 (package! ebuild-mode)
+(package! sxhkd-mode
+  :recipe (:host github :repo "xFA25E/sxhkd-mode"))
