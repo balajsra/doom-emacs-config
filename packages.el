@@ -8,9 +8,7 @@
 (package! prettier-js)
 (package! rainbow-mode)
 (package! systemd)
-(package! lua-mode)
 (package! just-mode)
-(package! nix-mode)
 (package! sxhkd-mode
   :recipe (:host github :repo "xFA25E/sxhkd-mode"))
 (package! ebuild-mode)

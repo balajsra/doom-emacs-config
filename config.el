@@ -19,7 +19,7 @@
 
 (doom/set-frame-opacity 95)
 
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 (setq-default tab-width 4)
 
