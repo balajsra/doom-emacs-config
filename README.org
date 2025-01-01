@@ -87,11 +87,11 @@ Alternatively, press =gd= (or =C-c c d=) on a module to browse its directory (fo
 
 #+BEGIN_SRC emacs-lisp :tangle init.el
 :completion
-(company +tng)  ; the ultimate code completion backend
-;;helm          ; the *other* search engine for love and life
-;;ido           ; the other *other* search engine...
-;;ivy           ; a search engine for love and life
-vertico         ; the search engine of the future
+company      ; the ultimate code completion backend
+;;helm       ; the *other* search engine for love and life
+;;ido        ; the other *other* search engine...
+;;ivy        ; a search engine for love and life
+vertico      ; the search engine of the future
 #+END_SRC
 
 *** User Interface
