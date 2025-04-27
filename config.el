@@ -158,10 +158,6 @@
   ;; Load our desired org-colors-* theme on startup
   (org-colors-dracula))
 
-(setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆"))
-(setq org-superstar-item-bullet-alist '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
-(add-hook! org-mode (org-superstar-mode))
-
 (custom-set-faces
  '(markdown-header-face ((t (:inherit font-lock-function-name-face :weight bold :family "variable-pitch"))))
  '(markdown-header-face-1 ((t (:inherit markdown-header-face :height 1.8))))

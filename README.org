@@ -759,14 +759,6 @@ If you use =org= and don't want your org files in the default location below, ch
   (org-colors-dracula))
 #+END_SRC
 
-**** Superstar
-
-#+BEGIN_SRC emacs-lisp :tangle config.el
-(setq org-superstar-headline-bullets-list '("◉" "●" "○" "◆" "●" "○" "◆"))
-(setq org-superstar-item-bullet-alist '((?+ . ?➤) (?- . ?✦))) ; changes +/- symbols in item lists
-(add-hook! org-mode (org-superstar-mode))
-#+END_SRC
-
 *** Markdown
 
 #+BEGIN_SRC emacs-lisp :tangle config.el
